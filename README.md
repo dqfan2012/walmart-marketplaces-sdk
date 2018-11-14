@@ -2,7 +2,13 @@
 
 This will probably become a composer package once it's finished.
 
-### To Do
+### Tasks
+
+**In Progress**
+
+ - [ ] Items API
+
+**To Do**
 
  - [ ] Inventory API
  - [ ] Feeds API
@@ -11,11 +17,5 @@ This will probably become a composer package once it's finished.
  - [ ] Returns/Refunds API
  - [ ] Promotions API
  - [ ] Reports API
-
-**In Progress**
-
- - [ ] Items API
-
-**Completed**
 
 None.
