@@ -1,4 +1,4 @@
-## Walmart Marketplaces PHP SDK
+## Walmart Marketplaces SDK
 
 This will probably become a composer package once it's finished.
 
@@ -17,5 +17,3 @@ This will probably become a composer package once it's finished.
  - [ ] Returns/Refunds API
  - [ ] Promotions API
  - [ ] Reports API
-
-None.
