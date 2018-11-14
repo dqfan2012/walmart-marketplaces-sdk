@@ -1,5 +1,7 @@
 ## Walmart Marketplaces PHP SDK
 
+This will probably become a composer package once it's finished.
+
 ### To Do
 
  - [ ] Inventory API
