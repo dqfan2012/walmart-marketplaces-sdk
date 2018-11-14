@@ -1,0 +1,19 @@
+# Ignore project files made by code editors
+.idea
+.vscode
+.sublime-project
+.sublime-workspace
+
+*.log
+.wakatime-project
+.remote-sync.json
+.editorconfig
+
+# ignore Composer downloads
+/vendor/*
+
+# Ignore environment file
+.env
+
+# keep some hiddens
+!/.gitignore

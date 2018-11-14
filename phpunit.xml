@@ -1,0 +1,54 @@
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/7.4/phpunit.xsd"
+         backupGlobals="true"
+         backupStaticAttributes="false"
+         bootstrap="bootstrap/start.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnFailure="false"
+         verbose="true">
+    <testsuites>
+        <!-- <testsuite name="HTTP Client Tests">
+            <directory suffix="Test.php">./tests/Client</directory>
+        </testsuite> -->
+
+        <testsuite name="Items API Tests">
+            <directory suffix="Test.php">./tests/Items</directory>
+        </testsuite>
+
+        <!--<testsuite name="Inventory API Tests">
+            <directory suffix="Test.php">./tests/Inventory</directory>
+        </testsuite>
+
+        <testsuite name="Feeds API Tests">
+            <directory suffix="Test.php">./tests/Feeds</directory>
+        </testsuite>
+
+        <testsuite name="Prices API Tests">
+            <directory suffix="Test.php">./tests/Prices</directory>
+        </testsuite>
+
+        <testsuite name="Orders API Tests">
+            <directory suffix="Test.php">./tests/Orders</directory>
+        </testsuite>
+
+        <testsuite name="Returns/Refunds API Tests">
+            <directory suffix="Test.php">./tests/Returns</directory>
+        </testsuite>
+
+        <testsuite name="Promotions API Tests">
+            <directory suffix="Test.php">./tests/Promotions</directory>
+        </testsuite>
+
+        <testsuite name="Reports API Tests">
+            <directory suffix="Test.php">./tests/Reports</directory>
+        </testsuite>-->
+    </testsuites>
+    <!-- <filter>
+    </filter> -->
+    <logging>
+        <log type="testdox-html" target="tests/reports/testdox.html"/>
+    </logging>
+</phpunit>

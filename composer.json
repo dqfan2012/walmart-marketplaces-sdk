@@ -1,0 +1,30 @@
+{
+    "name": "dqfan2012/walmart-marketplace-sdk",
+    "description": "empty description",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Samuel Stidham",
+            "email": "dqfan2012@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "WalmartMarketplaceApi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "vlucas/phpdotenv": "^2.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4",
+        "mockery/mockery": "^1.2"
+    }
+}
