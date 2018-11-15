@@ -6,8 +6,9 @@ namespace WalmartMarketplaceApi\Client;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use WalmartMarketplaceApi\Interfaces\TokenApiEndpointInterface;
 
-abstract class Core
+abstract class Core implements TokenApiEndpointInterface
 {
     /**
      * @var array
@@ -18,11 +19,6 @@ abstract class Core
      * @var Interface
      */
     protected $httpClient;
-
-    /**
-     * @var string
-     */
-    const TOKEN_API_URL = 'https://marketplace.walmartapis.com/v3/token';
 
     /**
      *

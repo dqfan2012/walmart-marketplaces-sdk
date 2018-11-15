@@ -4,11 +4,9 @@ namespace WalmartMarketplaceApi\Items;
 
 use GuzzleHttp\ClientInterface;
 use WalmartMarketplaceApi\Client\Core;
+use WalmartMarketplaceApi\Interfaces\iItemApiEndpoint;
 
-class GetAllItems extends Core
+class GetAllItems extends Core Implements ItemApiEndpointInterface
 {
-    public function __construct($client_id, $client_secret, $consumer_id, $channel_type, ?ClientInterface $httpClient = null)
-    {
-        parent::__construct($client_id, $client_secret, $consumer_id, $channel_type, $httpClient);
-    }
+
 } // End class BulkUpload

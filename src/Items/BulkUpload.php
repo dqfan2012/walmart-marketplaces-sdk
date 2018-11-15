@@ -6,12 +6,13 @@ namespace WalmartMarketplaceApi\Items;
 
 use GuzzleHttp\ClientInterface;
 use WalmartMarketplaceApi\Client\Core;
+use WalmartMarketplaceApi\Interfaces\ItemApiEndpointInterface;
 
-class BulkUpload extends Core
+class BulkUpload extends Core implements ItemApiEndpointInterface
 {
-    const API_URL = 'https://marketplace.walmartapis.com/v3/feeds';
+    //const API_URL = 'https://marketplace.walmartapis.com/v3/feeds';
 
-    public function UploadFile($file, $accessToken)
+    public function UploadFile(string $file, string $accessToken)
     {
         // Finish building the Auth headers for this request.
         $this->baseApiHeaders['headers']['Content-Type'] = 'multipart/formdata';
