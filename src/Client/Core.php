@@ -10,19 +10,9 @@ use GuzzleHttp\ClientInterface;
 abstract class Core
 {
     /**
-     * @var string
-     */
-    protected $apiUrl;
-
-    /**
      * @var array
      */
     protected $baseApiHeaders;
-
-    /**
-     * @var string
-     */
-    protected $credentials;
 
     /**
      * @var Interface
@@ -30,10 +20,8 @@ abstract class Core
     protected $httpClient;
 
     /**
-     * @var array
+     * @var string
      */
-    protected $retrieveTokenHeaders;
-
     const TOKEN_API_URL = 'https://marketplace.walmartapis.com/v3/token';
 
     /**
@@ -41,22 +29,17 @@ abstract class Core
      */
     public function __construct($client_id, $client_secret, $consumer_id, $channel_type, ?ClientInterface $httpClient = null)
     {
-        $this->credentials = \base64_encode($client_id . ':' . $client_secret);
+        $credentials = \base64_encode($client_id . ':' . $client_secret);
 
         $this->baseApiHeaders = [
             'headers' => [
-                'Authorization' => ['Basic ' . $this->credentials],
+                'Authorization' => ['Basic ' . $credentials],
                 'WM_SVC.NAME' => 'Walmart Marketplace',
                 'WM_QOS.CORRELATION_ID' => \uniqid(),
                 'WM_CONSUMER.ID' => $consumer_id,
                 'WM_CONSUMER.CHANNEL.TYPE' => $channel_type
             ]
         ];
-
-        $this->retrieveTokenHeaders = $this->baseApiHeaders;
-
-        $this->retrieveTokenHeaders['headers']['Content-Type'] = 'application/x-www-form-urlencoded';
-        $this->retrieveTokenHeaders['headers']['Accept'] = 'application/json';
 
         $this->httpClient = $httpClient !== null && $httpClient instanceof ClientInterface ? $httpClient : new Client();
     } // End public function __construct
@@ -65,5 +48,36 @@ abstract class Core
     /**
      *
      */
-    abstract function getAccessToken();
+    public function getAccessToken()
+    {
+        $retrieveTokenHeaders = $this->baseApiHeaders;
+
+        $retrieveTokenHeaders['headers']['Content-Type'] = 'application/x-www-form-urlencoded';
+        $retrieveTokenHeaders['headers']['Accept'] = 'application/json';
+
+        $retrieveTokenHeaders['form_params'] = [
+            'grant_type' => 'client_credentials'
+        ];
+
+        $response = $this->httpClient->request('POST', self::TOKEN_API_URL, $retrieveTokenHeaders);
+
+        $statusCode = $response->getStatusCode();
+
+        switch ($statusCode)
+        {
+            case 200:
+                $resArr = json_decode((string) $response->getBody(), true);
+                return $resArr['access_token'];
+                break;
+            case 400:
+                throw new \Exception('One or more request headers are invalid.');
+                break;
+            case 401:
+                throw new \Exception('Bad client credentials.');
+                break;
+            case 406:
+                throw new \Exception('Accept type is invalid.');
+                break;
+        }
+    } // End public function getAccessToken
 } // End abstract class Core
