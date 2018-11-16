@@ -30,7 +30,7 @@ class BulkUpdate extends Core implements InventoryApiEndpointInterface
 
         $apiHeaders['body'] = file_get_contents($feedFile);
 
-        $response = $this->httpClient->request('GET', self::API_URL, $apiHeaders);
+        $response = $this->httpClient->request('POST', self::API_URL, $apiHeaders);
 
         $statusCode = $response->getStatusCode();
 
