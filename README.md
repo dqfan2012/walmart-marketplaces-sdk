@@ -7,14 +7,14 @@ This will probably become a composer package once it's finished.
 **Finished**
 
  - [x] Items API
+ - [x] Inventory API
 
 **In Progress**
 
- - [ ] Inventory API
+ - [ ] Feeds API
 
 **To Do**
 
- - [ ] Feeds API
  - [ ] Prices API
  - [ ] Orders API
  - [ ] Returns/Refunds API
