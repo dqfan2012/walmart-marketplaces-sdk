@@ -1,14 +1,33 @@
 <?php
 
+declare(strict_types=1);
+
 namespace WalmartMarketplaceApi\Items;
 
-use GuzzleHttp\ClientInterface;
 use WalmartMarketplaceApi\Client\Core;
+use WalmartMarketplaceApi\Interfaces\ItemsApiEndpointInterface;
 
-class RetireItem extends Core
+class RetireItem extends Core implements ItemsApiEndpointInterface
 {
-    public function __construct($client_id, $client_secret, $consumer_id, $channel_type, ?ClientInterface $httpClient = null)
+    public function sendRequest($accessToken, $sku)
     {
-        parent::__construct($client_id, $client_secret, $consumer_id, $channel_type, $httpClient);
+        $url = self::API_URL . "/{$sku}";
+
+        // Build the Auth headers for this request.
+        $apiHeaders = $this->baseApiHeaders;
+        $apiHeaders['headers']['Content-Type'] = 'application/xml';
+        $apiHeaders['headers']['Accept'] = 'application/xml';
+        $apiHeaders['headers']['WM_SEC.ACCESS_TOKEN'] = $accessToken;
+
+        $response = $this->httpClient->request('DELETE', $url, $apiHeaders);
+
+        $statusCode = $response->getStatusCode();
+
+        switch ($statusCode)
+        {
+            case 200:
+                return (string) $response->getBody();
+                break;
+        }
     }
 } // End class BulkUpload

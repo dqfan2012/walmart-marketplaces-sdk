@@ -2,7 +2,7 @@
 
 namespace WalmartMarketplaceApi\Interfaces;
 
-interface ItemApiEndpointInterface
+interface FeedsApiEndpointInterface
 {
     const API_URL = 'https://marketplace.walmartapis.com/v3/feeds';
 }

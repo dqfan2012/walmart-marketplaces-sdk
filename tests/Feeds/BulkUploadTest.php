@@ -1,10 +1,10 @@
 <?php
 
-namespace Test\Items;
+namespace Test\Feeds;
 
 use GuzzleHttp\ClientInterface;
 use PHPUnit\Framework\TestCase;
-use WalmartMarketplaceApi\Items\BulkUpload;
+use WalmartMarketplaceApi\Feeds\BulkUpload;
 
 class BulkUploadTest extends TestCase
 {
@@ -27,8 +27,8 @@ class BulkUploadTest extends TestCase
 
         $bulkUpload = new BulkUpload($client_id, $client_secret, $consumer_id, $channel_type, $mockClient);
 
-        $xml = $bulkUpload->UploadFile($file, 'eyJraWQiOiJkZDk2MDZiNC0w');
+        $xml = $bulkUpload->sendRequest('eyJraWQiOiJkZDk2MDZiNC0w', $file);
 
         $this->assertNotEmpty($xml);
-    }
+    } // End testSuccessfulBulkUpload
 } // End class BulkUpload

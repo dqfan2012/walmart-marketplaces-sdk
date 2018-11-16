@@ -4,7 +4,7 @@ namespace Test\Client;
 
 use GuzzleHttp\ClientInterface;
 use PHPUnit\Framework\TestCase;
-use WalmartMarketplaceApi\Items\BulkUpload;
+use WalmartMarketplaceApi\Feeds\BulkUpload;
 
 /**
  * We're using the Item API > Bulk Uploads Request to test the Access Token API. It'll work
@@ -15,7 +15,7 @@ class AccessTokenTest extends TestCase
     /**
      *
      */
-    public function testTheBulkUploadClassCanGetAnAccessToken()
+    public function testWeCanGetAnAccessToken()
     {
         $channel_type  = getenv('WALMART_CHANNEL_TYPE');
         $client_id     = getenv('WALMART_CLIENT_ID');

@@ -10,9 +10,9 @@
          stopOnFailure="false"
          verbose="true">
     <testsuites>
-        <!-- <testsuite name="HTTP Client Tests">
+        <testsuite name="HTTP Client Tests">
             <directory suffix="Test.php">./tests/Client</directory>
-        </testsuite> -->
+        </testsuite>
 
         <testsuite name="Items API Tests">
             <directory suffix="Test.php">./tests/Items</directory>
@@ -20,13 +20,13 @@
 
         <!--<testsuite name="Inventory API Tests">
             <directory suffix="Test.php">./tests/Inventory</directory>
-        </testsuite>
+        </testsuite> -->
 
         <testsuite name="Feeds API Tests">
             <directory suffix="Test.php">./tests/Feeds</directory>
         </testsuite>
 
-        <testsuite name="Prices API Tests">
+        <!--<testsuite name="Prices API Tests">
             <directory suffix="Test.php">./tests/Prices</directory>
         </testsuite>
 

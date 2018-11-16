@@ -2,18 +2,23 @@
 
 declare(strict_types=1);
 
-namespace WalmartMarketplaceApi\Items;
+namespace WalmartMarketplaceApi\Feeds;
 
 use WalmartMarketplaceApi\Client\Core;
-use WalmartMarketplaceApi\Interfaces\ItemApiEndpointInterface;
+use WalmartMarketplaceApi\Interfaces\FeedsApiEndpointInterface;
 
-class BulkUpload extends Core implements ItemApiEndpointInterface
+/**
+ * This class is technically listed beneath the Items API in Walmart's documentation,
+ * but it uses the Feeds API endpoint. So I classified this API Request as a Feeds Request
+ */
+class BulkUpload extends Core implements FeedsApiEndpointInterface
 {
-    //const API_URL = 'https://marketplace.walmartapis.com/v3/feeds';
-
-    public function UploadFile(string $file, string $accessToken)
+    /**
+     *
+     */
+    public function sendRequest(string $accessToken, string $file)
     {
-        // Finish building the Auth headers for this request.
+        // Build the Auth headers for this request.
         $apiHeaders = $this->baseApiHeaders;
         $apiHeaders['headers']['Content-Type'] = 'multipart/formdata';
         $apiHeaders['headers']['Accept'] = 'application/xml';
@@ -37,5 +42,5 @@ class BulkUpload extends Core implements ItemApiEndpointInterface
                 return (string) $response->getBody();
                 break;
         }
-    }
+    } // End public function UploadFile
 } // End class BulkUpload

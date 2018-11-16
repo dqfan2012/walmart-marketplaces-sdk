@@ -4,13 +4,16 @@ This will probably become a composer package once it's finished.
 
 ### Tasks
 
+**Finished**
+
+ - [x] Items API
+
 **In Progress**
 
- - [ ] Items API
+ - [ ] Inventory API
 
 **To Do**
 
- - [ ] Inventory API
  - [ ] Feeds API
  - [ ] Prices API
  - [ ] Orders API
