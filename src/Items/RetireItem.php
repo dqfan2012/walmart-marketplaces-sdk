@@ -29,5 +29,5 @@ class RetireItem extends Core implements ItemsApiEndpointInterface
                 return (string) $response->getBody();
                 break;
         }
-    }
-} // End class BulkUpload
+    } // End public function sendRequest
+} // End class RetireItem

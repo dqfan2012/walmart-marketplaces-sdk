@@ -18,9 +18,9 @@
             <directory suffix="Test.php">./tests/Items</directory>
         </testsuite>
 
-        <!--<testsuite name="Inventory API Tests">
+        <testsuite name="Inventory API Tests">
             <directory suffix="Test.php">./tests/Inventory</directory>
-        </testsuite> -->
+        </testsuite>
 
         <testsuite name="Feeds API Tests">
             <directory suffix="Test.php">./tests/Feeds</directory>

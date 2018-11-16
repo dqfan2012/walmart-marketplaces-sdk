@@ -29,5 +29,5 @@ class GetItem extends Core implements ItemsApiEndpointInterface
                 return (string) $response->getBody();
                 break;
         }
-    }
+    } // End public function sendRequest
 } // End class GetItem

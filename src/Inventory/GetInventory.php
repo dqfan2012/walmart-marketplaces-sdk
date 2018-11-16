@@ -2,37 +2,33 @@
 
 declare(strict_types=1);
 
-namespace WalmartMarketplaceApi\Feeds;
+namespace WalmartMarketplaceApi\Inventory;
 
 use WalmartMarketplaceApi\Client\Core;
-use WalmartMarketplaceApi\Interfaces\FeedsApiEndpointInterface;
+use WalmartMarketplaceApi\Interfaces\InventoryApiEndpointInterface;
 
 /**
  * This class is technically listed beneath the Items API in Walmart's documentation,
  * but it uses the Feeds API endpoint. So I classified this API Request as a Feeds Request
  */
-class BulkUpload extends Core implements FeedsApiEndpointInterface
+class GetInventory extends Core implements InventoryApiEndpointInterface
 {
     /**
      *
      */
-    public function sendRequest(string $accessToken, string $feedFile)
+    public function sendRequest(string $accessToken, string $sku)
     {
         // Build the Auth headers for this request.
         $apiHeaders = $this->baseApiHeaders;
-        $apiHeaders['headers']['Content-Type'] = 'multipart/formdata';
+        $apiHeaders['headers']['Content-Type'] = 'application/xml';
         $apiHeaders['headers']['Accept'] = 'application/xml';
         $apiHeaders['headers']['WM_SEC.ACCESS_TOKEN'] = $accessToken;
 
-        // Set the query string params
         $apiHeaders['query'] = [
-            'feedType' => 'item'
+            'sku' => $sku
         ];
 
-        // Attach the XML file
-        $apiHeaders['body'] = file_get_contents($feedFile);
-
-        $response = $this->httpClient->request('POST', self::API_URL, $apiHeaders);
+        $response = $this->httpClient->request('GET', self::API_URL, $apiHeaders);
 
         $statusCode = $response->getStatusCode();
 
@@ -43,4 +39,4 @@ class BulkUpload extends Core implements FeedsApiEndpointInterface
                 break;
         }
     } // End public function sendRequest
-} // End class BulkUpload
+} // End class GetInventory

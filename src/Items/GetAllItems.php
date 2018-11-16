@@ -43,5 +43,5 @@ class GetAllItems extends Core Implements ItemsApiEndpointInterface
                 return (string) $response->getBody();
                 break;
         }
-    } // End public function getItems
+    } // End public function sendRequest
 } // End class GetAllItems

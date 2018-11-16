@@ -29,5 +29,5 @@ class RetireItemTest extends TestCase
         $xml = $retireItem->sendRequest('eyJraWQiOiJkZDk2MDZiNC0w', '123456NM');
 
         $this->assertNotEmpty($xml);
-    } // End testSuccessfulBulkUpload
-} // End class BulkUpload
+    } // End public function testSuccessfullyRetiredItem
+} // End class RetireItemTest

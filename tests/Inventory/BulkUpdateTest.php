@@ -1,14 +1,14 @@
 <?php
 
-namespace Test\Feeds;
+namespace Test\Inventory;
 
 use GuzzleHttp\ClientInterface;
 use PHPUnit\Framework\TestCase;
-use WalmartMarketplaceApi\Feeds\BulkUpload;
+use WalmartMarketplaceApi\Inventory\BulkUpdate;
 
-class BulkUploadTest extends TestCase
+class BulkUpdateTest extends TestCase
 {
-    public function testSuccessfulBulkUpload()
+    public function testSuccesfullyRanBulkUpdate()
     {
         $file = __DIR__ . '/files/upload.xml';
 
@@ -20,15 +20,15 @@ class BulkUploadTest extends TestCase
         $mockClient = \Mockery::mock(ClientInterface::class);
 
         $mockClient->shouldReceive('request')->andReturns(new \GuzzleHttp\Psr7\Response(200, [ 'Content-Type' => 'application/xml' ],
-        '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+        '<?xml version="1.0" encoding="UTF-8"?>
         <FeedAcknowledgement xmlns:ns2="http://walmart.com/">
-          <feedId>E9C04D1FFD99479FBC1341D56DD5F930@AQMB_wA</feedId>
+          <feedId>62a05384-37cd-4afc-95ca-c68241e6902a</feedId>
         </FeedAcknowledgement>'));
 
-        $bulkUpload = new BulkUpload($client_id, $client_secret, $consumer_id, $channel_type, $mockClient);
+        $bulkUpdate = new BulkUpdate($client_id, $client_secret, $consumer_id, $channel_type, $mockClient);
 
-        $xml = $bulkUpload->sendRequest('eyJraWQiOiJkZDk2MDZiNC0w', $file);
+        $xml = $bulkUpdate->sendRequest('eyJraWQiOiJkZDk2MDZiNC0w', $file);
 
         $this->assertNotEmpty($xml);
-    } // End testSuccessfulBulkUpload
-} // End class BulkUploadTest
+    } // End public function testSuccesfullyRanBulkUpdate
+} // End class BulkUpdateTest
