@@ -49,6 +49,6 @@
     <!-- <filter>
     </filter> -->
     <logging>
-        <log type="testdox-html" target="tests/reports/testdox.html"/>
+        <log type="testdox-html" target="tests/unit-test-report/testdox.html"/>
     </logging>
 </phpunit>
