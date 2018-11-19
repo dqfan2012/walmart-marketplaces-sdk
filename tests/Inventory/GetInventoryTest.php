@@ -30,8 +30,15 @@ class GetInventoryTest extends TestCase
 
         $getInventory = new GetInventory($client_id, $client_secret, $consumer_id, $channel_type, $mockClient);
 
-        $xml = $getInventory->sendRequest('eyJraWQiOiJkZDk2MDZiNC0w', '123456NM');
+        $xmlStr = $getInventory->sendRequest('eyJraWQiOiJkZDk2MDZiNC0w', '123456NM');
 
-        $this->assertNotEmpty($xml);
+        // Create a SimpleXMLElement Object
+        $xmlObject = \simplexml_load_string($xmlStr);
+
+        // An XML object could be created
+        $this->assertNotFalse($xmlObject);
+
+        // That XML Object is an instance of the SimpleXMLElement class
+        $this->assertInstanceOf(\SimpleXMLElement::class, $xmlObject);
     } // End public function testGetInventoryForASingleItem
 } // End class GetInventoryTest

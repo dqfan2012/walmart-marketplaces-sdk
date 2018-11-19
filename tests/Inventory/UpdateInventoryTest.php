@@ -40,8 +40,15 @@ class UpdateInventoryTest extends TestCase
 
         $updateInventory = new UpdateInventory($client_id, $client_secret, $consumer_id, $channel_type, $mockClient);
 
-        $xml = $updateInventory->sendRequest('eyJraWQiOiJkZDk2MDZiNC0w', '123456NM', $itemXml);
+        $xmlStr = $updateInventory->sendRequest('eyJraWQiOiJkZDk2MDZiNC0w', '123456NM', $itemXml);
 
-        $this->assertNotEmpty($xml);
+        // Create a SimpleXMLElement Object
+        $xmlObject = \simplexml_load_string($xmlStr);
+
+        // An XML object could be created
+        $this->assertNotFalse($xmlObject);
+
+        // That XML Object is an instance of the SimpleXMLElement class
+        $this->assertInstanceOf(\SimpleXMLElement::class, $xmlObject);
     } // End public function testUpdateInventoryForASingleItem
 } // End class UpdateInventoryTest

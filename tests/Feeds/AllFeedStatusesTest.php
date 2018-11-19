@@ -48,8 +48,15 @@ class AllFeedStatusesTest extends TestCase
 
         $allFeedStatuses = new AllFeedStatuses($client_id, $client_secret, $consumer_id, $channel_type, $mockClient);
 
-        $xml = $allFeedStatuses->sendRequest('eyJraWQiOiJkZDk2MDZiNC0w', 'Macnk3nsd38hgtn12');
+        $xmlStr = $allFeedStatuses->sendRequest('eyJraWQiOiJkZDk2MDZiNC0w', 'Macnk3nsd38hgtn12');
 
-        $this->assertNotEmpty($xml);
+        // Create a SimpleXMLElement Object
+        $xmlObject = \simplexml_load_string($xmlStr);
+
+        // An XML object could be created
+        $this->assertNotFalse($xmlObject);
+
+        // That XML Object is an instance of the SimpleXMLElement class
+        $this->assertInstanceOf(\SimpleXMLElement::class, $xmlObject);
     } // End public function testSuccessfullySentAllFeedStatusesApiRequest
 } // End class AllFeedStatusesTest
