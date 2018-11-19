@@ -20,3 +20,5 @@ This will probably become a composer package once it's finished.
  - [ ] Returns/Refunds API
  - [ ] Promotions API
  - [ ] Reports API
+ - [ ] Make better unit tests. Cover more cases.
+ - [ ] Make better use of PHP's exception system by creating classes for specific exceptions (for better error reporting).

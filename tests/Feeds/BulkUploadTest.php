@@ -30,5 +30,5 @@ class BulkUploadTest extends TestCase
         $xml = $bulkUpload->sendRequest('eyJraWQiOiJkZDk2MDZiNC0w', $file);
 
         $this->assertNotEmpty($xml);
-    } // End testSuccessfulBulkUpload
+    } // End public function testSuccessfulBulkUpload
 } // End class BulkUploadTest
