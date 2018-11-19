@@ -6,16 +6,16 @@ This will probably become a composer package once it's finished.
 
 **Finished**
 
- - [x] Items API
- - [x] Inventory API
+ - [X] Items API
+ - [X] Inventory API
+ - [X] Feeds API
 
 **In Progress**
 
- - [ ] Feeds API
+ - [ ] Prices API
 
 **To Do**
 
- - [ ] Prices API
  - [ ] Orders API
  - [ ] Returns/Refunds API
  - [ ] Promotions API
