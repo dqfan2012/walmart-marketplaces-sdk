@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Inventory;
+namespace WalmartMarketplaceApi\Test\Inventory;
 
 use GuzzleHttp\ClientInterface;
 use PHPUnit\Framework\TestCase;

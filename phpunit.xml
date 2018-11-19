@@ -26,11 +26,11 @@
             <directory suffix="Test.php">./tests/Feeds</directory>
         </testsuite>
 
-        <!--<testsuite name="Prices API Tests">
+        <testsuite name="Prices API Tests">
             <directory suffix="Test.php">./tests/Prices</directory>
         </testsuite>
 
-        <testsuite name="Orders API Tests">
+        <!--<testsuite name="Orders API Tests">
             <directory suffix="Test.php">./tests/Orders</directory>
         </testsuite>
 

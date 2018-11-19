@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Client;
+namespace WalmartMarketplaceApi\Test\Client;
 
 use GuzzleHttp\ClientInterface;
 use PHPUnit\Framework\TestCase;

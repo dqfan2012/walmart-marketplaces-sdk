@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Items;
+namespace WalmartMarketplaceApi\Test\Items;
 
 use GuzzleHttp\ClientInterface;
 use PHPUnit\Framework\TestCase;
@@ -39,8 +39,15 @@ class GetItemTest extends TestCase
 
         $getItem = new GetItem($client_id, $client_secret, $consumer_id, $channel_type, $mockClient);
 
-        $xml = $getItem->sendRequest('eyJraWQiOiJkZDk2MDZiNC0w', '123456NM');
+        $xmlStr = $getItem->sendRequest('eyJraWQiOiJkZDk2MDZiNC0w', '123456NM');
 
-        $this->assertNotEmpty($xml);
+        // Create a SimpleXMLElement Object
+        $xmlObject = \simplexml_load_string($xmlStr);
+
+        // An XML object could be created
+        $this->assertNotFalse($xmlObject);
+
+        // That XML Object is an instance of the SimpleXMLElement class
+        $this->assertInstanceOf(\SimpleXMLElement::class, $xmlObject);
     } // End public function testSuccessfulGetItemApiRequest
 } // End class GetItemTest
