@@ -1,3 +1,5 @@
+# THIS PROJECT HAS BEEN DISCONTINUED
+
 ## Walmart Marketplaces SDK
 
 This will probably become a composer package once it's finished.

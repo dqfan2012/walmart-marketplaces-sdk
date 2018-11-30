@@ -39,8 +39,6 @@ class GetAllItemsTest extends TestCase
 
         $getAllItems = new GetAllItems($client_id, $client_secret, $consumer_id, $channel_type, $mockClient);
 
-        $getAllItems = new GetAllItems($client_id, $client_secret, $consumer_id, $channel_type, $mockClient);
-
         $xml = $getAllItems->sendRequest('eyJraWQiOiJkZDk2MDZiNC0w', '123456NM');
 
         $this->assertNotEmpty($xml);
