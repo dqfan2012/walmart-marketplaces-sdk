@@ -1,5 +1,10 @@
 # THIS PROJECT HAS BEEN DISCONTINUED
 
+I recommend you manage your Walmart listings through Sellbrite. I've created an SDK in PHP for working with Sellbrite's API.
+
+[dqfan2012/sellbrite-sdk](https://github.com/dqfan2012/sellbrite-sdk)
+
+
 ## Walmart Marketplaces SDK
 
 This will probably become a composer package once it's finished.
